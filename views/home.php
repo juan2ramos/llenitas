@@ -1,9 +1,12 @@
 <section class="logo">
     <figure><img src="images/logo-llenitas.png" alt="Logo llenitas" id="contact"/></figure>
-    <div class="phone">
-        <a href="tel:3167668821"><span class="icon-moto">
-               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="154.782px" height="112.26px" viewBox="0 0 154.782 112.26" enable-background="new 0 0 154.782 112.26"
+</section>
+<div class="phone">
+    <a href="tel:3167668821"><span class="icon-moto">
+               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="154.782px" height="90px" viewBox="0 0 154.782 112.26"
+                    enable-background="new 0 0 154.782 112.26"
                     xml:space="preserve">
                 <g>
                     <path fill="#414042" d="M0.002,91.623c1.775,1.354,0.025-0.042,1.758,1.354c1.059-4.021,7.689-8.033,12.381-10.371
@@ -32,7 +35,7 @@
                         c4.256,1.187,9.078,2.532,12.359,2.532h34.376C80.004,58.735,81.075,59.801,81.562,60.651z"/>
                 </g>
 </svg>
+               
 
             </span> Domicilios 316 7668821</a>
-    </div>
-</section>
+</div>

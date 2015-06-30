@@ -1,8 +1,7 @@
-
 @font-face {
     font-family: 'icomoon';
-    src:url('fonts/icomoon.eot?-yoyqch');
-    src:url('fonts/icomoon.eot?#iefix-yoyqch') format('embedded-opentype'),
+    src: url('fonts/icomoon.eot?-yoyqch');
+    src: url('fonts/icomoon.eot?#iefix-yoyqch') format('embedded-opentype'),
     url('fonts/icomoon.ttf?-yoyqch') format('truetype'),
     url('fonts/icomoon.woff?-yoyqch') format('woff'),
     url('fonts/icomoon.svg?-yoyqch#icomoon') format('svg');
@@ -27,37 +26,46 @@
 .icon-instagram-with-circle:before {
     content: "\e600";
 }
+
 .icon-home:before {
     content: "\e900";
 }
+
 .icon-phone:before {
     content: "\e942";
 }
+
 .icon-envelop:before {
     content: "\e945";
 }
+
 .icon-search:before {
     content: "\e986";
 }
+
 .icon-facebook3:before {
     content: "\ea8e";
 }
+
 .icon-instagram:before {
     content: "\ea90";
 }
+
 .icon-twitter3:before {
     content: "\ea93";
 }
+
 .icon-pinterest:before {
     content: "\ead0";
 }
 
 @font-face {
     font-family: 'ThinCool';
-    src: url('fonts/ThinCool.eot?#iefix') format('embedded-opentype'),  url('fonts/ThinCool.woff') format('woff'), url('fonts/ThinCool.ttf')  format('truetype'), url('fonts/ThinCool.svg#ThinCool') format('svg');
+    src: url('fonts/ThinCool.eot?#iefix') format('embedded-opentype'), url('fonts/ThinCool.woff') format('woff'), url('fonts/ThinCool.ttf') format('truetype'), url('fonts/ThinCool.svg#ThinCool') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
 a {
     color: #584d40;
     text-decoration: none;
@@ -87,8 +95,7 @@ h1, h2, h3, ul {
     padding: 0;
 }
 
-
-*{
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -103,26 +110,30 @@ img {
 /*=================================================================
 header
 ===================================================================*/
-header{
+header {
     background-color: rgba(255, 255, 255, 0.5);
     font-size: 2rem;
-    margin: 40px auto;
+    margin: 5px auto 15px;
     max-width: 1048px;
     padding: 10px;
 }
-.network{
+
+.network {
     display: inline-block;
     float: right;
     width: 115px;
 }
-.network li{
+
+.network li {
     display: inline-block;
     vertical-align: top;
     text-align: center;
     width: 28%;
 }
-.network li a{
+
+.network li a {
 }
+
 /*=================================================================
 Nav
 ===================================================================*/
@@ -131,33 +142,47 @@ Nav
 Footer
 ===================================================================*/
 
-
 /*=================================================================
 logo
 ===================================================================*/
-.logo{
+.logo {
     cursor: pointer;
-    max-width: 370px;
+    max-width: 300px;
     margin: auto;
 }
-.phone{
+
+.phone {
     font-size: 3rem;
     margin: 20px 0;
     position: relative;
     text-align: center;
     letter-spacing: 2px;
+    transform: rotate(0deg);
 }
-.icon-moto{
-    position: absolute;
-    width: 80px;
-    top: -40px;
-    left: -50px;
+
+.icon-moto {
+    transition: transform 1s linear;
+    transform-origin: top left;
+    transform-style: preserve-3D;
+
+    transform: rotate(160deg);
+    transform-origin: top left;
+
+    height: 100px;
+    position: relative;
+    animation-name: muovi_img;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+
 }
+
 /*=================================================================
 PopUp
 ===================================================================*/
 
-#popUp{
+#popUp {
     background: rgba(255, 255, 255, 0.95);
     display: none;
     height: 100%;
@@ -166,17 +191,20 @@ PopUp
     top: 0;
     width: 100%;
 }
-#popUp form{
+
+#popUp form, .excel form {
     margin: 20vh auto;
     max-width: 400px;
     padding: 10px;
     position: relative;
 }
-#popUp h2{
+
+#popUp h2, .excel form h2 {
     font-size: 3rem;
     margin: 15px 0;
 }
-#popUp input {
+
+#popUp input, .excel input {
     border: 2px solid #584d40;
     color: #584d40;
     font-size: 1.4rem;
@@ -185,7 +213,8 @@ PopUp
     margin: 10px 0;
     padding: 10px;
 }
-#popUp button {
+
+#popUp button, .excel button {
     background: #584d40;
     border: 2px solid #584d40;
     color: white;
@@ -196,10 +225,12 @@ PopUp
     letter-spacing: 2px;
     padding: 0 20px;
 }
-.show{
+
+.show {
     display: block !important;
 }
-#close{
+
+#close {
     border-radius: 50%;
     border: 2px solid;
     cursor: pointer;
@@ -213,23 +244,168 @@ PopUp
     top: 0;
     width: 16px;
 }
-path{
+
+path {
     fill: #584d40;
 }
-a:hover{
+
+a:hover {
     color: #ce7257;
 }
-.phone:hover path{
+
+.phone:hover path {
     fill: #ce7257
 }
-.message{
+
+.message {
     font-size: 2.5rem;
     display: block;
     margin: 15px 0;
     text-align: center;
 }
-@media (max-width:800px) {
-    .icon-moto{
-        position: static;
+
+@media (max-width: 600px) {
+
+    header a {
+        font-size: 1.8rem;
     }
+}
+
+@keyframes muovi_img {
+    0% {
+        left: -70vw
+    }
+    40% {
+        left: 0;
+
+    }
+    80% {
+        left: 0;
+    }
+    100% {
+        left: 70vw;
+        display: none;
+    }
+}
+
+.smoke {
+    background: rgba(91, 76, 60, 0.46);
+    bottom: 16px;
+    height: 25px;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-17px, 0px) rotate(64deg);
+    width: 11px;
+}
+
+.smoke-bubble, .smoke-bubble:before, .smoke-bubble:after {
+    background: rgba(91, 77, 61, 1);
+    border-radius: 50%;
+    bottom: 2em;
+    display: block;
+    height: 3em;
+    left: -1em;
+    position: absolute;
+    width: 3em;
+    -webkit-animation: smoke-animation 0.3s linear infinite alternate-reverse;
+    animation: smoke-animation 0.3s linear infinite alternate-reverse;
+    box-shadow: 0px 0px 4px;
+
+}
+
+.smoke-bubble:after {
+    bottom: -.25em;
+    content: '';
+    height: 2.5em;
+    width: 2.5em;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.smoke-bubble:before {
+    bottom: -.25em;
+    content: '';
+    height: 2.15em;
+    left: auto;
+    right: -.5em;
+    width: 2.15em;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes smoke-animation {
+    0% {
+        -webkit-transform: scale(0.95, 0.95);
+        transform: scale(0.95, 0.95);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes smoke-animation {
+    0% {
+        -ms-transform: scale(0.95, 0.95);
+        -webkit-transform: scale(0.95, 0.95);
+        transform: scale(0.95, 0.95);
+    }
+    100% {
+        -ms-transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+.content-smoke {
+    font-size: .4rem;
+    margin: auto;
+    width: 60px;
+    position: relative;
+    left: -50px;
+}
+
+.excel form {
+    margin: auto;
+}
+
+.excel span {
+    background-color: rgb(182, 87, 87);
+    color: rgb(254, 255, 253);
+    display: block;
+    font-size: 3rem;
+    margin: 120px auto 0;
+    max-width: 380px;
+    text-align: center;
+
+}
+.excel path{
+    fill: #457945;
+}
+.excelContent{
+    display: block;
+    color: #457945;
+    font-size: 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px 0 12px;
+}
+.excelContent:hover path{
+    fill: rgb(182, 87, 87);
+}
+.excel table{
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 800px;
+    margin: auto;
+    font-size: 2rem;
+    text-align: center;
+}
+.excel th, .excel td{
+    width: 16.6%;
+    border: 2px solid rgb(89, 90, 85);  
+}
+button[type="text"]:disabled {
+    background: #dddddd;
 }

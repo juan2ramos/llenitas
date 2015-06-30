@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: juan2ramos
- * Date: 28/04/14
- * Time: 15:38
- */
+
 
 date_default_timezone_set("America/Bogota");
 ini_set('display_errors', 1);

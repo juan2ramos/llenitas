@@ -1,35 +1,36 @@
 <?php
-if (!empty($_POST)) {
-    if(empty($_POST['name']) || empty($_POST['email'])|| empty($_POST['phone'])  ){
-        $arrayMsj['success'] = FALSE;
-        $arrayMsj['message'] = 'Todos los campos son requeridos';
-        echo (json_encode($arrayMsj));
-        exit;
-    }
-    require '/home4/llenitas/mailer/PHPMailerAutoload.php';
-    $mail = new PHPMailer;
-    $mail->FromName ='Formulario llenitas' ;
-    $mail->CharSet = 'UTF-8';
-    $mail->From = 'webmaster@simonsein.com';
-    $mail->Subject = 'Mensaje llenitas';
-    $mail->MsgHTML('Mensaje con HTML');
-    $template = '<h1>Mensaje enviado desde el formulario de Llenitas</h1><br><br>';
-    $template .= 'Nombre: ' . $_POST['name'] . '<br>';
-    $template .= 'Email: ' . $_POST['email'] .'<br>';
-    $template .= 'telefono: ' . $_POST['phone'] .'<br>';
+require '/home4/llenitas/mailer/PHPMailerAutoload.php';
+include('include/Registered.php');
+include('include/env.php');
 
-    $mail->Body = $template;
-    $mail->AddAddress('webmaster@simonsein.com', '');
-    if($mail->Send()){
-        $arrayMsj['success'] = TRUE;
-        $arrayMsj['message'] = 'Felicitaciones, su mensaje a sido enviado con éxito!!';
-    }else{
-        $arrayMsj['success'] = false;
-        $arrayMsj['message'] = 'Su mensaje no a sido enviado con éxito!!';
-    }
+$fields = [
+    "name" => ['required'],
+    "email" => ['required','email'],
+    "phone" => ['required','number'],
+    "number-identification" => ['required','number'],
+];
+$infoMail = [
+    "fromName" => 'llenitas de gracia',
+    "from" => 'webmaster@simonsein.com',
+    "emails" => 'webmaster@simonsein.com',
+    "web" => 'llenitasdegracia.com',
+    "subject" => 'Mensaje desde el sitio web de llenitas de gracia',
+];
+$r = new Registered($_POST,$fields,$infoMail,$dataBase);
 
+if(count($r->getMessages()) > 0){
+    $arrayMsj['success'] = false;
+    $arrayMsj['message'] = $r->getMessages();
     echo (json_encode($arrayMsj));
     exit;
-}else{
-    echo "Error al intentar acceder";
 }
+if ($r->getSend()) {
+    $arrayMsj['success'] = TRUE;
+    $arrayMsj['message'] = 'Felicitaciones, su mensaje a sido enviado con éxito!!';
+} else {
+    $arrayMsj['success'] = false;
+    $arrayMsj['message'] = 'Su mensaje no a sido enviado fffcon éxito!!';
+}
+echo (json_encode($arrayMsj));
+exit;
+?>
